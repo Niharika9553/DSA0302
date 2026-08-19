@@ -1,7 +1,0 @@
-def fsa(s):
-    if s.endswith("ab"):
-        return "Accepted"
-    return "Rejected"
-
-text = input("Enter a string: ")
-print(fsa(text))
