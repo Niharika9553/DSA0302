@@ -1,0 +1,12 @@
+import re
+
+text = "John went to the shop. He bought a book. He read it."
+
+names = ["John"]
+references = ["He", "it"]
+
+for ref in references:
+    if ref == "He":
+        print(ref, "-> John")
+    elif ref == "it":
+        print(ref, "-> book")
