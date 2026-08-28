@@ -1,0 +1,18 @@
+import re
+
+def parse(expression):
+    pattern = r'([A-Za-z]+)\((.*?)\)'
+
+    match = re.fullmatch(pattern, expression)
+
+    if match:
+        predicate = match.group(1)
+        arguments = match.group(2).split(',')
+
+        print("Predicate:", predicate)
+        print("Arguments:", arguments)
+    else:
+        print("Invalid FOPC expression")
+
+expression = input("Enter expression: ")
+parse(expression)
