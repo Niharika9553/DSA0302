@@ -1,0 +1,31 @@
+grammar = {
+    'S': [('NP VP', 1.0)],
+    'NP': [('Det N', 0.8), ('Name', 0.2)],
+    'VP': [('V NP', 1.0)],
+    'Det': [('the', 1.0)],
+    'N': [('cat', 0.5), ('mouse', 0.5)],
+    'V': [('chased', 1.0)],
+    'Name': [('Tom', 1.0)]
+}
+
+sentence = "the cat chased the mouse"
+
+probability = 1.0
+
+rules = [
+    ('S', 1.0),
+    ('NP', 0.8),
+    ('Det', 1.0),
+    ('N', 0.5),
+    ('VP', 1.0),
+    ('V', 1.0),
+    ('NP', 0.8),
+    ('Det', 1.0),
+    ('N', 0.5)
+]
+
+for symbol, p in rules:
+    probability *= p
+
+print("Sentence:", sentence)
+print("Probability:", probability)
