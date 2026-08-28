@@ -1,0 +1,15 @@
+import re
+
+words = ["I", "am", "playing", "football", "quickly"]
+
+for word in words:
+    if re.match(r'.*ing$', word):
+        tag = "VBG"
+    elif re.match(r'.*ly$', word):
+        tag = "RB"
+    elif word in ["I", "he", "she", "we"]:
+        tag = "PRP"
+    else:
+        tag = "NN"
+
+    print(word, "->", tag)
