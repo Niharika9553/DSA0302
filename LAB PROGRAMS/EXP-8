@@ -1,0 +1,14 @@
+import random
+
+words = ["I", "eat", "food", "good"]
+
+tags = {
+    "I": ["PRP"],
+    "eat": ["VB", "NN"],
+    "food": ["NN"],
+    "good": ["JJ"]
+}
+
+for word in words:
+    tag = random.choice(tags[word])
+    print(word, "->", tag)
