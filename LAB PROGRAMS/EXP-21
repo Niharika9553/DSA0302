@@ -1,0 +1,19 @@
+import nltk
+
+nltk.download('punkt')
+
+sentence = "The smart student reads books."
+
+words = sentence.split()
+
+noun_phrases = []
+
+for i, word in enumerate(words):
+    if word.lower() in ["student", "books"]:
+        noun_phrases.append(word)
+
+print("Sentence:", sentence)
+print("Noun Phrases:", noun_phrases)
+
+for noun in noun_phrases:
+    print(noun, "-> represents an entity/object")
