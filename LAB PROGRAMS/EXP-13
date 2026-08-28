@@ -1,0 +1,31 @@
+grammar = {
+    'S': ['NP', 'VP'],
+    'NP': ['Det', 'N'],
+    'VP': ['V', 'NP']
+}
+
+tree = {
+    'S': {
+        'NP': {
+            'Det': 'the',
+            'N': 'cat'
+        },
+        'VP': {
+            'V': 'chased',
+            'NP': {
+                'Det': 'the',
+                'N': 'mouse'
+            }
+        }
+    }
+}
+
+def print_tree(node, level=0):
+    if isinstance(node, dict):
+        for key, value in node.items():
+            print("  " * level + key)
+            print_tree(value, level + 1)
+    else:
+        print("  " * level + node)
+
+print_tree(tree)
