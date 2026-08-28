@@ -1,0 +1,14 @@
+words = ["I", "like", "playing", "games"]
+
+tags = ["NN"] * len(words)
+
+for i, word in enumerate(words):
+    if word in ["I", "he", "she", "we", "they"]:
+        tags[i] = "PRP"
+    elif word.endswith("ing"):
+        tags[i] = "VBG"
+    elif word in ["like", "play", "eat"]:
+        tags[i] = "VB"
+
+for word, tag in zip(words, tags):
+    print(word, "->", tag)
