@@ -1,0 +1,27 @@
+grammar = {
+    'S': [['NP', 'VP']],
+    'NP': [['Det', 'N']],
+    'VP': [['V', 'NP']],
+    'Det': [['the']],
+    'N': [['cat'], ['mouse']],
+    'V': [['chased']]
+}
+
+def parse(symbols, words):
+    if not symbols:
+        return len(words) == 0
+
+    symbol = symbols[0]
+
+    if symbol not in grammar:
+        return words and words[0] == symbol and parse(symbols[1:], words[1:])
+
+    for rule in grammar[symbol]:
+        if parse(rule + symbols[1:], words):
+            return True
+
+    return False
+
+sentence = "the cat chased the mouse".split()
+
+print("Accepted" if parse(['S'], sentence) else "Rejected")
