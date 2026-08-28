@@ -1,0 +1,25 @@
+def check_agreement(sentence):
+    words = sentence.split()
+
+    if len(words) != 3:
+        return False
+
+    subject, verb, obj = words
+
+    singular = ["boy", "girl", "cat"]
+    plural = ["boys", "girls", "cats"]
+
+    if subject in singular and verb == "eats":
+        return True
+
+    if subject in plural and verb == "eat":
+        return True
+
+    return False
+
+sentence = input("Enter sentence: ")
+
+if check_agreement(sentence):
+    print("Agreement is correct")
+else:
+    print("Agreement is incorrect")
