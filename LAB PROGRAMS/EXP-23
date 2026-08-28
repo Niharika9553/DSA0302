@@ -1,0 +1,25 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+text = [
+    "Python is a programming language.",
+    "Python is useful for data science.",
+    "Data science uses Python for analysis."
+]
+
+vectorizer = TfidfVectorizer()
+matrix = vectorizer.fit_transform(text)
+
+score = 0
+
+for i in range(len(text) - 1):
+    score += cosine_similarity(matrix[i], matrix[i + 1])[0][0]
+
+score = score / (len(text) - 1)
+
+print("Coherence Score:", round(score, 2))
+
+if score > 0.2:
+    print("Text is coherent")
+else:
+    print("Text is less coherent")
